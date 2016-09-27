@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="#cc3636"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/iv_finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:background="@null"
+        android:drawableLeft="@drawable/jiantou"
+        android:padding="10dp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/icon_top" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@android:color/white"
+        android:textSize="15sp" />
+
+    <Button
+        android:layout_width="100dp"
+        android:visibility="gone"
+        android:id="@+id/btn_more"
+        android:textColor="@android:color/white"
+        android:layout_height="match_parent"
+        android:background="#cc3636"
+        android:text="More"
+        android:layout_alignParentRight="true"/>
+</RelativeLayout>

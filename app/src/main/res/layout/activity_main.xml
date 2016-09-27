@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:background="#cc3636"
+    android:orientation="vertical">
+
+    <include layout="@layout/ui_titlebar" />
+
+    <FrameLayout
+        android:id="@+id/main_lay"
+        android:layout_width="match_parent"
+        android:background="@android:color/white"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </FrameLayout>
+
+    <android.support.v4.app.FragmentTabHost
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:id="@android:id/tabhost"
+        >
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@android:id/tabcontent"
+            android:layout_height="0dp">
+        </FrameLayout>
+    </android.support.v4.app.FragmentTabHost>
+
+</LinearLayout>

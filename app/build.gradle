@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+android {
+    useLibrary 'org.apache.http.legacy'
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+
+    defaultConfig {
+        applicationId "com.iknown.ylf.iknown"
+        minSdkVersion 15
+        targetSdkVersion 24
+        versionCode 2
+        versionName "1.1"
+        ndk {
+            abiFilters 'armeabi'
+        }
+    }
+
+    //应用 Bugtags 插件
+    apply plugin: 'com.bugtags.library.plugin'
+
+    //Bugtags 插件配置
+    bugtags {
+        //自动上传符号表功能配置，如果需要根据 build varint 配置，请参考插件详细使用说明
+        appKey "49c077058e48aa023e10bfad167684cf"  //这里是你的 appKey
+        appSecret "5396cee71dbcfe02cf9dc5fbbcd20ba9"    //这里是你的 appSecret，管理员在设置页可以查看
+        mappingUploadEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile files('libs/Baidu_MobAds_SDK.jar')
+    compile files('libs/glide-3.6.1.jar')
+    compile files('libs/jiecaovideoplayer-4.6.5-sources.jar')
+    compile files('libs/xUtils-3.1.22.jar')
+    compile files('libs/BmobSDK_3.5.1_20160719.jar')
+    compile files('libs/rxandroid-1.2.0.jar')
+    compile files('libs/rxjava-1.1.6.jar')
+    compile files('libs/androidasync-2.1.6.jar')
+    compile files('libs/okhttp-3.3.1.jar')
+    compile files('libs/okio-1.7.0.jar')
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.bugtags.library:bugtags-lib:latest.integration'
+}
