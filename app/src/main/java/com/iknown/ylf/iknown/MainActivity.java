@@ -73,7 +73,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
         iv_finish = (Button) findViewById(R.id.iv_finish);
         iv_finish.setVisibility(View.GONE);
-
         DeviceUtils utils = DeviceUtils.getInstance(this);
         int currentCode = utils.getVersionCode();
         checkVersionCode(currentCode);
@@ -104,7 +103,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             }, 2000); // 两秒之内改变退出状态
         } else {
             //退出程序
-            // ApkUtil.finishActivity();
+            //ApkUtil.finishActivity();
             System.exit(0);
             finish();
 
