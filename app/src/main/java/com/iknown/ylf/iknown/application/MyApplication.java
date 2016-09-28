@@ -1,11 +1,7 @@
 package com.iknown.ylf.iknown.application;
 import org.xutils.x;
 import android.app.Application;
-
-import com.baidu.mobads.AdSettings;
 import com.baidu.mobads.AppActivity;
-import com.bugtags.library.Bugtags;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -16,7 +12,6 @@ public class MyApplication extends Application{
 
 	private static MyApplication INSTANCE;
 	private String appkey="bc80663f76526523395616eccb98528c";
-	private String BugKey="49c077058e48aa023e10bfad167684cf";
 	public static MyApplication INSTANCE(){
 		return INSTANCE;
 	}
@@ -33,8 +28,6 @@ public class MyApplication extends Application{
 		super.onCreate();
 		x.Ext.init(this);
 		x.Ext.setDebug(true);
-
-		//Bugtags.start(BugKey,this,Bugtags.BTGInvocationEventBubble);
 
 		AppActivity.setActionBarColorTheme(AppActivity.ActionBarColorTheme.ACTION_BAR_RED_THEME);
 

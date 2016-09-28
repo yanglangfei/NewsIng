@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:background="#cc3636"
+    android:layout_height="match_parent">
+    <include layout="@layout/ui_titlebar" android:id="@+id/tb"></include>
+
+    <ScrollView
+        android:layout_below="@+id/tb"
+        android:layout_width="match_parent"
+        android:background="@android:color/white"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+              <RelativeLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content">
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_centerHorizontal="true"
+                      android:layout_marginTop="20dp"
+                      android:textSize="18sp"
+                      android:gravity="center"
+                      android:id="@+id/historyDetailTitle"
+                      android:text=""/>
+
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/historyDetailTitle"
+                      android:layout_alignParentRight="true"
+                      android:layout_marginRight="20dp"
+                      android:id="@+id/historyTime"
+                      android:textSize="15sp"
+                      android:layout_marginTop="10dp"
+                      android:text=""/>
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="10dp"
+                      android:layout_marginLeft="20dp"
+                      android:textSize="15sp"
+                      android:lineSpacingExtra="5dp"
+                      android:textColor="@android:color/darker_gray"
+                      android:layout_marginRight="20dp"
+                      android:id="@+id/historyDetailDesc"
+                      android:layout_below="@+id/historyTime"
+                      />
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@+id/historyDetailDesc"
+                      android:layout_marginTop="10dp"
+                      android:layout_marginLeft="20dp"
+                      android:textSize="15sp"
+                      android:lineSpacingExtra="5dp"
+                      android:id="@+id/historyContent"
+                      android:layout_marginRight="20dp"
+                      android:text=""/>
+
+              </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/pb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        style="@android:style/Widget.Holo.ProgressBar"/>
+</RelativeLayout>

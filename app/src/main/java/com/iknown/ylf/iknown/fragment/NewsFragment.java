@@ -33,7 +33,6 @@ public class NewsFragment extends Fragment implements OnCheckedChangeListener, V
     private View view;
 
     private RadioGroup group;
-    private ProgressBar pBar;
     private ViewPager viewpager;
 
     private String type[] = {"头条", "社会", "国内", "国际", "娱乐", "体育", "军事", "科技",
@@ -72,7 +71,6 @@ public class NewsFragment extends Fragment implements OnCheckedChangeListener, V
 
 
         group = (RadioGroup) view.findViewById(R.id.news_group);
-        pBar = (ProgressBar) view.findViewById(R.id.pb);
         group.removeAllViews();
         fragmentList.clear();
         for (int i = 0; i < type.length; i++) {
@@ -85,7 +83,6 @@ public class NewsFragment extends Fragment implements OnCheckedChangeListener, V
             button.setLayoutParams(params);
             button.setId(i);
             button.setText(type[i]);
-         //   button.setBackground(ContextCompat.getDrawable(getActivity(),R.drawable.news_tab_laylist));
             group.addView(button);
 
             tabFragment=new NewsTabFragment();

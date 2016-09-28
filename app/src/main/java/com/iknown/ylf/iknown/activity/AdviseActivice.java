@@ -2,20 +2,17 @@ package com.iknown.ylf.iknown.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
-import android.widget.Toast;
-
 import com.baidu.mobads.AdSettings;
 import com.baidu.mobads.AdView;
 import com.baidu.mobads.AdViewListener;
 import com.iknown.ylf.iknown.R;
-
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -39,6 +36,9 @@ public class AdviseActivice extends Activity implements View.OnClickListener {
         initData();
     }
 
+    /*
+       获取百度移动广告
+     */
     private void initData() {
         for (int i = 0; i < adviceId.length; i++) {
             initAdvice(views.get(i),adviceId[i]);
@@ -50,11 +50,11 @@ public class AdviseActivice extends Activity implements View.OnClickListener {
         AdSettings.setKey(new String[]{"baidu", "中国"});
         //创建广告view
         AdView adView = new AdView(this, adviceId);
-
         //设置监听器
         adView.setListener(new AdViewListener() {
             @Override
             public void onAdReady(AdView adView) {
+
             }
 
             @Override
@@ -65,6 +65,7 @@ public class AdviseActivice extends Activity implements View.OnClickListener {
 
             @Override
             public void onAdClick(JSONObject jsonObject) {
+
             }
 
             @Override

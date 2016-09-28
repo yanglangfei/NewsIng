@@ -7,5 +7,6 @@ public class Contact {
 	public static final String BAIDU_APPID = "fb38a2f1";
 	//"e866cfb0"
 	public static final String BAIDUTEST_APPID = "e866cfb0";
+	public  static  final  String HISTORYKEY="884f0858c1a665ba2ab48abe40df4277";
 
 }

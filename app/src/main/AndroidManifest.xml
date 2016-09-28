@@ -82,8 +82,11 @@
         <receiver android:name=".receiver.DownLoadReceiver"></receiver>
         <service android:name=".server.UpLoadServer"></service>
         <activity android:name=".activity.AdviseActivice"></activity>
+        <activity android:name=".activity.HistoryDetail"></activity>
 
 
+
+       <!--百度ssp-->
         <meta-data
             android:name="BaiduMobAd_APP_ID"
             android:value="b6b0171e" />
@@ -93,10 +96,13 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
 
-
+        <!--Bmob-->
         <meta-data
             android:name="Bmob_APP_KEY"
             android:value="bc80663f76526523395616eccb98528c" />
+
+
+        <!--豌豆荚-->
 
 
     </application>

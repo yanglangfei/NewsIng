@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.iknown.ylf.iknown.activity.NewsDetail;
 import com.iknown.ylf.iknown.R;
@@ -38,7 +39,7 @@ public class NewsTabFragment extends Fragment {
     private ListView news_list;
     private static final String GET_NEWS = "http://v.juhe.cn/toutiao/index";
     private NewsAdapter adapter;
-    private ViewPager viewpager;
+    private ProgressBar pb_newTab;
     private List<News> newsArray = new ArrayList<News>();
     // top(头条，默认),shehui(社会),guonei(国内),guoji(国际),yule(娱乐),tiyu(体育)junshi(军事),keji(科技),caijing(财经),shishang(时尚)
     private String typeArray[] = {"top", "shehui", "guonei", "guoji", "yule",
@@ -68,9 +69,9 @@ public class NewsTabFragment extends Fragment {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void initView() {
+        pb_newTab= (ProgressBar) view.findViewById(R.id.pb_newTab);
+        pb_newTab.setVisibility(View.VISIBLE);
         news_list = (ListView) view.findViewById(R.id.news_list);
-        viewpager= (ViewPager) view.findViewById(R.id.viewpager);
-
         adapter = new NewsAdapter(newsArray, getActivity());
         news_list.setAdapter(adapter);
         news_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -145,6 +146,7 @@ public class NewsTabFragment extends Fragment {
                 adapter.setNewsArray(newsArray);
                 adapter.notifyDataSetChanged();
                 news_list.setVisibility(View.VISIBLE);
+                pb_newTab.setVisibility(View.GONE);
 
             }
 

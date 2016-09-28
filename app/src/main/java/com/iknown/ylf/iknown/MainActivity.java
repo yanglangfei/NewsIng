@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.iknown.ylf.iknown.activity.AdviseActivice;
 import com.iknown.ylf.iknown.activity.BaseActivity;
 import com.iknown.ylf.iknown.fragment.ArticleFragment;
+import com.iknown.ylf.iknown.fragment.HistoryFragment;
 import com.iknown.ylf.iknown.fragment.NewsFragment;
 import com.iknown.ylf.iknown.model.ApkManager;
 import com.iknown.ylf.iknown.server.UpLoadServer;
@@ -37,10 +38,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private Button iv_finish;
     private FragmentTabHost tabHost;
     private  Button btn_more;
-
-    private String tabs[] = {"资讯", "微信精选"};
-    private int tab_drawables[] = {R.drawable.select_zixun, R.drawable.select_jingxuan};
-    private Class fragments[] = {NewsFragment.class, ArticleFragment.class};
+    private String tabs[] = {"资讯", "微信精选","今日历史"};
+    private int tab_drawables[] = {R.drawable.select_zixun, R.drawable.select_jingxuan,R.drawable.select_lishi};
+    private Class fragments[] = {NewsFragment.class, ArticleFragment.class, HistoryFragment.class};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,24 +71,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             tabHost.addTab(tab, fragments[i], null);
         }
 
-
         iv_finish = (Button) findViewById(R.id.iv_finish);
         iv_finish.setVisibility(View.GONE);
 
         DeviceUtils utils = DeviceUtils.getInstance(this);
-       /* ApkManager manager=new ApkManager();
-        manager.setApkUrl("");
-        manager.setPackageName("");
-        manager.setVersionCode(1);
-        manager.setVersionName("1.1");
-        manager.save(new SaveListener<String>() {
-            @Override
-            public void done(String s, BmobException e) {
-                Toast.makeText(MainActivity.this, "ss", Toast.LENGTH_SHORT).show();
-            }
-        });*/
-
-
         int currentCode = utils.getVersionCode();
         checkVersionCode(currentCode);
     }

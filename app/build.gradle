@@ -11,20 +11,6 @@ android {
         targetSdkVersion 24
         versionCode 2
         versionName "1.1"
-        ndk {
-            abiFilters 'armeabi'
-        }
-    }
-
-    //应用 Bugtags 插件
-    apply plugin: 'com.bugtags.library.plugin'
-
-    //Bugtags 插件配置
-    bugtags {
-        //自动上传符号表功能配置，如果需要根据 build varint 配置，请参考插件详细使用说明
-        appKey "49c077058e48aa023e10bfad167684cf"  //这里是你的 appKey
-        appSecret "5396cee71dbcfe02cf9dc5fbbcd20ba9"    //这里是你的 appSecret，管理员在设置页可以查看
-        mappingUploadEnabled true
     }
 
     buildTypes {
@@ -50,5 +36,4 @@ dependencies {
     compile files('libs/okhttp-3.3.1.jar')
     compile files('libs/okio-1.7.0.jar')
     compile 'com.google.code.gson:gson:2.7'
-    compile 'com.bugtags.library:bugtags-lib:latest.integration'
 }

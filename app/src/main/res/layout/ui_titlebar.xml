@@ -35,6 +35,7 @@
     <Button
         android:layout_width="100dp"
         android:visibility="gone"
+        android:textSize="15sp"
         android:id="@+id/btn_more"
         android:textColor="@android:color/white"
         android:layout_height="match_parent"
