@@ -23,6 +23,7 @@
                 android:layout_marginLeft="6dp"
                 android:padding="3dp"
                 android:id="@+id/tv_date"
+                android:textSize="12sp"
                 android:background="@drawable/shap_date"
                 android:text=""/>
 
@@ -38,13 +39,14 @@
               android:layout_height="wrap_content"
               android:text="星期"/>
           <TextView
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
+              android:layout_width="25dp"
+              android:layout_height="25dp"
               android:layout_marginLeft="6dp"
-              android:padding="3dp"
               android:id="@+id/tv_week"
-              android:background="@drawable/shap_date"
-              android:text=""/>
+              android:gravity="center"
+              android:textSize="12sp"
+              android:background="@drawable/week_shap"
+              android:text="五"/>
       </LinearLayout>
 
 

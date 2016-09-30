@@ -13,7 +13,6 @@ import com.iknown.ylf.iknown.model.Article;
 import java.util.List;
 
 public class ArticleAdapter extends BaseAdapter {
-
 	private Context context;
 	private List<Article> articles;
 
