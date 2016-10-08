@@ -4,13 +4,15 @@
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/dataLay"
+        android:padding="5dp"
         android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
+            android:layout_centerVertical="true"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
@@ -33,6 +35,7 @@
           android:layout_height="wrap_content"
           android:layout_alignParentRight="true"
           android:layout_marginRight="20dp"
+          android:layout_centerVertical="true"
           android:orientation="horizontal">
           <TextView
               android:layout_width="wrap_content"
@@ -46,7 +49,7 @@
               android:gravity="center"
               android:textSize="12sp"
               android:background="@drawable/week_shap"
-              android:text="五"/>
+              android:text=""/>
       </LinearLayout>
 
 

@@ -22,6 +22,15 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
     <!--允许联网 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  -->
@@ -54,11 +63,10 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <!-- 以下为可选权限 -->
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <uses-permission
-    android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
 
 
     <application
@@ -81,17 +89,18 @@
 
         <receiver android:name=".receiver.DownLoadReceiver"></receiver>
         <service android:name=".server.UpLoadServer"></service>
+
         <activity android:name=".activity.AdviseActivice"></activity>
         <activity android:name=".activity.HistoryDetail"></activity>
 
 
-
-       <!--百度ssp-->
+        <!--百度ssp-->
         <meta-data
             android:name="BaiduMobAd_APP_ID"
             android:value="b6b0171e" />
 
-        <activity android:name="com.baidu.mobads.AppActivity"
+        <activity
+            android:name="com.baidu.mobads.AppActivity"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
@@ -102,7 +111,14 @@
             android:value="bc80663f76526523395616eccb98528c" />
 
 
-        <!--豌豆荚-->
+        <!--腾讯移动联盟-->
+        <service
+            android:name="com.qq.e.comm.DownloadService"
+            android:exported="false"></service>
+        <activity
+            android:name="com.qq.e.ads.ADActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"></activity>
+
 
 
     </application>

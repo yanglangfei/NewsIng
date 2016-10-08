@@ -13,6 +13,11 @@ import com.baidu.mobads.AdSettings;
 import com.baidu.mobads.AdView;
 import com.baidu.mobads.AdViewListener;
 import com.iknown.ylf.iknown.R;
+import com.qq.e.ads.banner.ADSize;
+import com.qq.e.ads.banner.AbstractBannerADListener;
+import com.qq.e.ads.banner.BannerView;
+import com.qq.e.comm.net.rr.Request;
+
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -22,19 +27,47 @@ import java.util.List;
  */
 public class AdviseActivice extends Activity implements View.OnClickListener {
     private  RelativeLayout lay1,lay2,lay3,lay4,lay5,lay6,lay7,lay8;
-    private  String adviceId[]={"2930323","2930327","2930328","2930329","2930331","2930332","2930374","2930375"};
+    private  String adviceId[]={"2930323","2930327","2930328"};
     private List<RelativeLayout> views=new ArrayList<>();
     private ProgressBar pb_advice;
     private ScrollView advice_lay;
     private ImageView iv_logo;
     private Button iv_finish;
+    private String appId="1105738142";
+    private String postId="7060412555988800";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ui_advise);
         initView();
         initData();
+        initTelentAdData();
     }
+
+    /**
+     *  获取腾讯广告数据
+     */
+    public void initTelentAdData(){
+        BannerView bannerView=new BannerView(this, ADSize.BANNER,appId,postId);
+        views.get(3).addView(bannerView);
+        bannerView.setRefresh(3000);
+        bannerView.setADListener(new AbstractBannerADListener() {
+            @Override
+            public void onNoAD(int i) {
+                Log.i("111","noAd:"+i);
+            }
+
+            @Override
+            public void onADReceiv() {
+                Log.i("111","receiverAd");
+
+            }
+        });
+        bannerView.loadAD();
+    }
+
+
 
     /*
        获取百度移动广告
