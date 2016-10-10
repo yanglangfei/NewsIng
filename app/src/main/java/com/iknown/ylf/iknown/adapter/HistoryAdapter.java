@@ -51,7 +51,8 @@ public class HistoryAdapter extends BaseAdapter {
         ImageView historyImg= (ImageView) view.findViewById(R.id.historyImg);
         TextView historyTitle= (TextView) view.findViewById(R.id.historyTitle);
         TextView historyDesc= (TextView) view.findViewById(R.id.historyDesc);
-        Glide.with(context).load(histories.get(i).getPic()).into(historyImg);
+        Glide.with(context).load(histories.get(i).getPic())
+                .placeholder(R.drawable.logo_no).into(historyImg);
         historyTitle.setText(histories.get(i).getTitle());
         historyDesc.setText(histories.get(i).getDes());
         return view;

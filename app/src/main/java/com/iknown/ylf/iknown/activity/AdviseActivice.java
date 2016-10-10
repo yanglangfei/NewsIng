@@ -26,45 +26,49 @@ import java.util.List;
  * Created by Administrator on 2016/9/27.
  */
 public class AdviseActivice extends Activity implements View.OnClickListener {
-    private  RelativeLayout lay1,lay2,lay3,lay4,lay5,lay6,lay7,lay8;
-    private  String adviceId[]={"2930323","2930327","2930328"};
-    private List<RelativeLayout> views=new ArrayList<>();
+    private  RelativeLayout lay1,lay2,lay3,lay4,lay5,lay6;
+    //百度
+    private  String adviceId[]={"2961716","2930327","2930328"};
+    private  String telentId[]={"2030815586523964","3000512506032172","1050713546730123"};
+    private List<RelativeLayout> baiduViews=new ArrayList<>();
+    private List<RelativeLayout> telentViews=new ArrayList<>();
     private ProgressBar pb_advice;
     private ScrollView advice_lay;
     private ImageView iv_logo;
     private Button iv_finish;
-    private String appId="1105738142";
-    private String postId="7060412555988800";
+    private String appId="1105632623";
+    private String postId="2030815586523964";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ui_advise);
         initView();
-        initData();
-        initTelentAdData();
+        initBaiduData();
+       initTelentAdData();
     }
-
     /**
      *  获取腾讯广告数据
      */
     public void initTelentAdData(){
-        BannerView bannerView=new BannerView(this, ADSize.BANNER,appId,postId);
-        views.get(3).addView(bannerView);
-        bannerView.setRefresh(3000);
-        bannerView.setADListener(new AbstractBannerADListener() {
-            @Override
-            public void onNoAD(int i) {
-                Log.i("111","noAd:"+i);
-            }
+        for (int i = 0; i < telentId.length; i++) {
+            BannerView bannerView=new BannerView(this, ADSize.BANNER,appId,postId);
+            telentViews.get(i).addView(bannerView);
+            bannerView.setRefresh(30);
+            bannerView.setADListener(new AbstractBannerADListener() {
+                @Override
+                public void onNoAD(int i) {
 
-            @Override
-            public void onADReceiv() {
-                Log.i("111","receiverAd");
+                }
 
-            }
-        });
-        bannerView.loadAD();
+                @Override
+                public void onADReceiv() {
+
+
+                }
+            });
+            bannerView.loadAD();
+        }
     }
 
 
@@ -72,9 +76,9 @@ public class AdviseActivice extends Activity implements View.OnClickListener {
     /*
        获取百度移动广告
      */
-    private void initData() {
+    private void initBaiduData() {
         for (int i = 0; i < adviceId.length; i++) {
-            initAdvice(views.get(i),adviceId[i]);
+            initAdvice(baiduViews.get(i),adviceId[i]);
         }
     }
 
@@ -132,16 +136,12 @@ public class AdviseActivice extends Activity implements View.OnClickListener {
         lay4= (RelativeLayout) findViewById(R.id.adv4);
         lay5= (RelativeLayout) findViewById(R.id.adv5);
         lay6= (RelativeLayout) findViewById(R.id.adv6);
-        lay7= (RelativeLayout) findViewById(R.id.adv7);
-        lay8= (RelativeLayout) findViewById(R.id.adv8);
-        views.add(lay1);
-        views.add(lay2);
-        views.add(lay3);
-        views.add(lay4);
-        views.add(lay5);
-        views.add(lay6);
-        views.add(lay7);
-        views.add(lay8);
+        baiduViews.add(lay1);
+        baiduViews.add(lay2);
+        baiduViews.add(lay3);
+        telentViews.add(lay4);
+        telentViews.add(lay5);
+        telentViews.add(lay6);
     }
 
     @Override
