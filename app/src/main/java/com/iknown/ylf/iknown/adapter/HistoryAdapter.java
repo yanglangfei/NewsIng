@@ -28,6 +28,14 @@ public class HistoryAdapter extends BaseAdapter {
         this.context=context;
     }
 
+    public  void resumeLoad(){
+        Glide.with(context).resumeRequests();
+    }
+
+    public  void pauseLoad(){
+        Glide.with(context).pauseRequests();
+    }
+
     @Override
     public int getCount() {
         return histories.size();

@@ -1,4 +1,4 @@
-package com.iknown.ylf.iknown;
+package com.iknown.ylf.iknown.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,14 +17,16 @@ import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.iknown.ylf.iknown.activity.AdviseActivice;
-import com.iknown.ylf.iknown.activity.BaseActivity;
+import com.iknown.ylf.iknown.R;
 import com.iknown.ylf.iknown.fragment.ArticleFragment;
 import com.iknown.ylf.iknown.fragment.HistoryFragment;
 import com.iknown.ylf.iknown.fragment.NewsFragment;
 import com.iknown.ylf.iknown.model.ApkManager;
 import com.iknown.ylf.iknown.server.UpLoadServer;
 import com.iknown.ylf.iknown.utils.DeviceUtils;
+import com.tencent.android.tpush.XGIOperateCallback;
+import com.tencent.android.tpush.XGPushConfig;
+import com.tencent.android.tpush.XGPushManager;
 
 import java.util.List;
 import java.util.Timer;
@@ -50,6 +53,22 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
     private void initView() {
+        XGPushConfig.setAccessId(this,2100239119);
+        XGPushConfig.setAccessKey(this,"ATW43K131WWA");
+        XGPushManager.registerPush(this, new XGIOperateCallback() {
+            @Override
+            public void onSuccess(Object o, int i) {
+
+            }
+
+            @Override
+            public void onFail(Object o, int i, String s) {
+
+
+            }
+        });
+
+
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(Color.parseColor("#cc3636"));

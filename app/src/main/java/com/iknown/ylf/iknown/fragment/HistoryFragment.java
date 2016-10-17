@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -141,6 +142,27 @@ public class HistoryFragment extends Fragment implements AdapterView.OnItemClick
         pb= (ProgressBar) view.findViewById(R.id.pb);
         pb.setVisibility(View.VISIBLE);
         lv_history.setVisibility(View.GONE);
+        lv_history.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView absListView, int scrollState) {
+                // 当不滚动时
+                switch (scrollState) {
+                    case SCROLL_STATE_IDLE:
+                        adapter.resumeLoad();
+                        break;
+                    case SCROLL_STATE_FLING:
+                        adapter.pauseLoad();
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            @Override
+            public void onScroll(AbsListView absListView, int i, int i1, int i2) {
+
+            }
+        });
     }
 
     @Override
