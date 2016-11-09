@@ -2,6 +2,7 @@ package com.iknown.ylf.iknown.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -24,9 +25,10 @@ import java.util.List;
  */
 
 public class BaiduAds extends Activity implements View.OnClickListener {
-    private RelativeLayout lay1,lay2,lay3,lay4,lay5,lay6,lay7,lay8;
+    private RelativeLayout lay1,lay2,lay3,lay4,lay5,lay6,lay7,lay8,adv9;
     //百度
-    private  String adviceId[]={"2961716","2930327","2930328","2930329","2930331","2930332","2930374","2930375"};
+    private  String tags[]={"限制广告1","代码位2","广告位3","广告位4","广告位5","广告位6","广告位7","广告位8", "代码位1"};
+    private  String adviceId[]={"2961716","2930327","2930328","2930329","2930331","2930332","2930374","2930375","2930323"};
     private List<RelativeLayout> baiduViews=new ArrayList<>();
     private ProgressBar pb_advice;
     private ScrollView advice_lay;
@@ -43,32 +45,34 @@ public class BaiduAds extends Activity implements View.OnClickListener {
 
     private void initBaiduData() {
         for (int i = 0; i < adviceId.length; i++) {
-            initAdvice(baiduViews.get(i),adviceId[i]);
+            initAdvice(baiduViews.get(i),adviceId[i],tags[i],i);
         }
 
     }
 
-    private void initAdvice(RelativeLayout relativeLayout,String adviceId) {
+    private void initAdvice(RelativeLayout relativeLayout, final String adviceId, String tag, final int position) {
         //人群属性
         AdSettings.setKey(new String[]{"baidu", "中国"});
         //创建广告view
-        AdView adView = new AdView(this, adviceId);
+        final AdView adView = new AdView(this, adviceId);
+        adView.setTag(tag);
         //设置监听器
         adView.setListener(new AdViewListener() {
             @Override
             public void onAdReady(AdView adView) {
-
+               // Log.i("111","ready。。"+adView.getTag().toString());
             }
 
             @Override
             public void onAdShow(JSONObject jsonObject) {
                 pb_advice.setVisibility(View.GONE);
                 advice_lay.setVisibility(View.VISIBLE);
+               // Log.i("111","show:"+jsonObject.toString());
             }
 
             @Override
             public void onAdClick(JSONObject jsonObject) {
-
+               // Log.i("111","click:"+jsonObject.toString()+"    "+tags[position]);
             }
 
             @Override
@@ -81,6 +85,7 @@ public class BaiduAds extends Activity implements View.OnClickListener {
 
             @Override
             public void onAdClose(JSONObject jsonObject) {
+                //Log.i("111","close:"+jsonObject.toString());
             }
         });
         relativeLayout.addView(adView);
@@ -104,6 +109,7 @@ public class BaiduAds extends Activity implements View.OnClickListener {
         lay6= (RelativeLayout) findViewById(R.id.adv6);
         lay7= (RelativeLayout) findViewById(R.id.adv7);
         lay8= (RelativeLayout) findViewById(R.id.adv8);
+        adv9= (RelativeLayout) findViewById(R.id.adv9);
         baiduViews.add(lay1);
         baiduViews.add(lay2);
         baiduViews.add(lay3);
@@ -112,6 +118,8 @@ public class BaiduAds extends Activity implements View.OnClickListener {
         baiduViews.add(lay6);
         baiduViews.add(lay7);
         baiduViews.add(lay8);
+        //测试
+        baiduViews.add(adv9);
     }
 
     @Override
